@@ -2,6 +2,7 @@ import {
   exerciseRequestSchema,
   exerciseReturnSchema,
   exerciseListSchema,
+  exerciseByGroupListSchema,
 } from "./exercises.schema";
 import {
   muscleRequestSchema,
@@ -16,4 +17,5 @@ export {
   exerciseRequestSchema,
   exerciseReturnSchema,
   exerciseListSchema,
+  exerciseByGroupListSchema,
 };

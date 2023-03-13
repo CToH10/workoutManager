@@ -16,3 +16,7 @@ export const exerciseReturnSchema = exerciseRequestSchema
   .omit({ muscleId: true });
 
 export const exerciseListSchema = z.array(exerciseReturnSchema);
+
+export const exerciseByGroupListSchema = z.array(
+  exerciseReturnSchema.omit({ muscle: true })
+);

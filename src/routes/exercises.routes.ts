@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   createExerciseController,
   listAllExercisesController,
+  listExerciseByGroupController,
 } from "../controllers";
 import { protectData, uniqueExerciseName } from "../middlewares";
 import { exerciseRequestSchema } from "../schemas";
@@ -15,3 +16,4 @@ exerciseRoute.post(
   createExerciseController
 );
 exerciseRoute.get("", listAllExercisesController);
+exerciseRoute.get("/:id", listExerciseByGroupController);

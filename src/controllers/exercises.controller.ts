@@ -1,5 +1,9 @@
 import { Request, Response } from "express";
-import { createExerciseService, listAllExercisesService } from "../services";
+import {
+  createExerciseService,
+  listAllExercisesService,
+  listExerciseByGroupService,
+} from "../services";
 
 export const createExerciseController = async (
   request: Request,
@@ -15,4 +19,13 @@ export const listAllExercisesController = async (
 ): Promise<Response> => {
   const exerciseList = await listAllExercisesService();
   return response.json(exerciseList);
+};
+
+export const listExerciseByGroupController = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  const id: number = Number(request.params.id);
+  const exerciseByGroup = await listExerciseByGroupService(id);
+  return response.json(exerciseByGroup);
 };
