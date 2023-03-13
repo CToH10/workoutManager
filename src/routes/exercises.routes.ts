@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { createExerciseController } from "../controllers";
+import {
+  createExerciseController,
+  listAllExercisesController,
+} from "../controllers";
 import { protectData, uniqueExerciseName } from "../middlewares";
 import { exerciseRequestSchema } from "../schemas";
 
@@ -11,3 +14,4 @@ exerciseRoute.post(
   uniqueExerciseName,
   createExerciseController
 );
+exerciseRoute.get("", listAllExercisesController);

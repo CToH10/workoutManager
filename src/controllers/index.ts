@@ -1,4 +1,7 @@
-import { createExerciseController } from "./exercises.controller";
+import {
+  createExerciseController,
+  listAllExercisesController,
+} from "./exercises.controller";
 import {
   getAllMusclesController,
   createMuscleController,
@@ -8,4 +11,5 @@ export {
   getAllMusclesController,
   createMuscleController,
   createExerciseController,
+  listAllExercisesController,
 };
