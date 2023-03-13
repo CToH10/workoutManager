@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,4 +5,59 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+enum TrainingExp {
+  beg
+  int
+  adv
+  pro
+}
+
+model user {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(50)
+  email String @db.VarChar(50) @unique
+  trainingExp TrainingExp @default(beg)
+  password String @db.VarChar(120)
+  admin Boolean? @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  dailyWorkout daily_workout[]
+}
+
+model muscle_group {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(50) @unique
+  exercises exercise[]
+}
+
+model exercise {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(55) @unique
+  description String?
+  muscle muscle_group @relation(fields: [muscleId], references: [id])
+  muscleId Int
+  daily_exercise daily_exercise[]
+}
+
+model daily_workout {
+  id Int @id @default(autoincrement())
+  user user @relation(fields: [userId], references: [id])
+  userId Int
+  date DateTime @default(now())
+  daily_exercise daily_exercise[]
+}
+
+model daily_exercise {
+  id Int @id @default(autoincrement())
+  exercise exercise @relation(fields: [exerciseId], references: [id])
+  exerciseId Int
+  dailyWorkout daily_workout @relation(fields: [dailyWorkoutId], references: [id])
+  dailyWorkoutId Int
+  weight Int
+  series Int
+  reps Int
+  totalLoad Int 
 }
