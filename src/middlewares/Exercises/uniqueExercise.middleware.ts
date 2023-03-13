@@ -9,16 +9,19 @@ export const uniqueExerciseName = async (
 ) => {
   const name: string = request.body.name;
 
-  const alreadyExists = await prisma.exercise
-    .findFirst({
-      where: {
-        name: name,
-      },
-    })
-    .catch((err) => console.log(err));
+  if (name) {
+    const alreadyExists = await prisma.exercise
+      .findUnique({
+        where: {
+          name,
+        },
+      })
+      .catch((err) => console.error(err));
 
-  if (alreadyExists) {
-    throw new AppError("Exercise already exists", 409);
+    if (alreadyExists) {
+      throw new AppError(`${name} exercise already exists`, 409);
+    }
   }
+
   return next();
 };

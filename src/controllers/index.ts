@@ -2,10 +2,12 @@ import {
   createExerciseController,
   listAllExercisesController,
   listExerciseByGroupController,
+  updateExerciseController,
 } from "./exercises.controller";
 import {
   getAllMusclesController,
   createMuscleController,
+  updateMuscleController,
 } from "./muscle.controller";
 
 export {
@@ -14,4 +16,6 @@ export {
   createExerciseController,
   listAllExercisesController,
   listExerciseByGroupController,
+  updateExerciseController,
+  updateMuscleController,
 };

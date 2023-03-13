@@ -7,7 +7,7 @@ export const createExerciseService = async (
 ): Promise<iExerciseReturn> => {
   const { name, description, muscleId } = data;
 
-  let sendData = description
+  const sendData = description
     ? {
         name,
         muscle: { connect: { id: muscleId } },

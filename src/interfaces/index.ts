@@ -3,6 +3,7 @@ import {
   iExerciseReturn,
   iExerciseList,
   iExerciseByGroup,
+  iExerciseUpdate,
 } from "./exercises.interface";
 import { iMuscleRequest, iMuscleReturn, iMuscleList } from "./muscle.interface";
 
@@ -14,4 +15,5 @@ export {
   iExerciseReturn,
   iExerciseList,
   iExerciseByGroup,
+  iExerciseUpdate,
 };

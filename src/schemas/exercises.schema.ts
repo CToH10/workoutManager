@@ -20,3 +20,5 @@ export const exerciseListSchema = z.array(exerciseReturnSchema);
 export const exerciseByGroupListSchema = z.array(
   exerciseReturnSchema.omit({ muscle: true })
 );
+
+export const exerciseUpdateSchema = exerciseRequestSchema.deepPartial();

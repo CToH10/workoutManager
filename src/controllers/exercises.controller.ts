@@ -3,6 +3,7 @@ import {
   createExerciseService,
   listAllExercisesService,
   listExerciseByGroupService,
+  updateExerciseService,
 } from "../services";
 
 export const createExerciseController = async (
@@ -28,4 +29,13 @@ export const listExerciseByGroupController = async (
   const id: number = Number(request.params.id);
   const exerciseByGroup = await listExerciseByGroupService(id);
   return response.json(exerciseByGroup);
+};
+
+export const updateExerciseController = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  const id: number = Number(request.params.id);
+  const updatedExercise = await updateExerciseService(request.body, id);
+  return response.json(updatedExercise);
 };

@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   createMuscleController,
   getAllMusclesController,
+  updateMuscleController,
 } from "../controllers";
 import { protectData, uniqueMuscleName } from "../middlewares";
 import { muscleRequestSchema } from "../schemas";
@@ -15,3 +16,9 @@ muscleRoutes.post(
   createMuscleController
 );
 muscleRoutes.get("", getAllMusclesController);
+muscleRoutes.patch(
+  "/:id",
+  protectData(muscleRequestSchema),
+  uniqueMuscleName,
+  updateMuscleController
+);
