@@ -1,10 +1,13 @@
 import { prisma } from "../../app";
 import { iMuscleList } from "../../interfaces";
+import { muscleListSchema } from "../../schemas";
 
 export const getAllMusclesService = async (): Promise<iMuscleList> => {
-  const muscleList = prisma.muscle_group.findMany({
+  const muscleList = await prisma.muscle_group.findMany({
     include: { exercises: true },
   });
 
-  return muscleList;
+  const validatedMuscleList = muscleListSchema.parse(muscleList);
+
+  return validatedMuscleList;
 };
