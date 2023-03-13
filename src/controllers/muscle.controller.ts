@@ -12,7 +12,7 @@ export const createMuscleController = async (
 export const getAllMusclesController = async (
   request: Request,
   response: Response
-) => {
+): Promise<Response> => {
   const allMuscles = await getAllMusclesService();
   return response.json(allMuscles);
 };

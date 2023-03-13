@@ -12,14 +12,4 @@ app.use(express.json());
 app.use("/muscles", muscleRoutes);
 app.use("/exercises", exerciseRoute);
 
-// app.get("/muscles", async (req, res) => {
-//   const posts = await prisma.muscle_group.findMany({
-//     include: { exercises: true },
-//   });
-
-//   res.json(posts);
-// });
-
-// example req
-
 app.use(ErrorHandler);

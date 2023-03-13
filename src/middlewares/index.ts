@@ -1,5 +1,6 @@
+import { uniqueExerciseName } from "./Exercises/uniqueExercise.middleware";
 import { uniqueMuscleName } from "./Muscles/uniqueMuscle.middleware";
 import { protectData } from "./protecData.middleware";
 uniqueMuscleName;
 
-export { protectData, uniqueMuscleName };
+export { protectData, uniqueMuscleName, uniqueExerciseName };

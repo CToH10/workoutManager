@@ -3,7 +3,7 @@ import { z } from "zod";
 export const exerciseRequestSchema = z.object({
   name: z.string().max(50),
   description: z.string().nullish(),
-  muscleGroupId: z.number(),
+  muscleId: z.number(),
 });
 
 export const exerciseReturnSchema = exerciseRequestSchema
@@ -13,6 +13,6 @@ export const exerciseReturnSchema = exerciseRequestSchema
       name: z.string(),
     }),
   })
-  .omit({ muscleGroupId: true });
+  .omit({ muscleId: true });
 
 export const exerciseListSchema = z.array(exerciseReturnSchema);
