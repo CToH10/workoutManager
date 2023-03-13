@@ -6,4 +6,7 @@ export const muscleRequestSchema = z.object({
 
 export const muscleReturnSchema = muscleRequestSchema.extend({
   id: z.number(),
+  exercises: z.array(z.any()).nullish(),
 });
+
+export const muscleListSchema = z.array(muscleReturnSchema);

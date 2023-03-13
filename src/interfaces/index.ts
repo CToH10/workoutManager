@@ -1,3 +1,3 @@
-import { iMuscleRequest, iMuscleReturn } from "./muscle.interface";
+import { iMuscleRequest, iMuscleReturn, iMuscleList } from "./muscle.interface";
 
-export { iMuscleRequest, iMuscleReturn };
+export { iMuscleRequest, iMuscleReturn, iMuscleList };

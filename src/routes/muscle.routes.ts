@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { createMuscleController } from "../controllers/muscle.controller";
+import {
+  createMuscleController,
+  getAllMusclesController,
+} from "../controllers";
 import { protectData, uniqueMuscleName } from "../middlewares";
 import { muscleRequestSchema } from "../schemas";
 
@@ -11,3 +14,4 @@ muscleRoutes.post(
   uniqueMuscleName,
   createMuscleController
 );
+muscleRoutes.get("", getAllMusclesController);

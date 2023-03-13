@@ -1,3 +1,7 @@
-import { muscleRequestSchema, muscleReturnSchema } from "./muscles.schema";
+import {
+  muscleRequestSchema,
+  muscleReturnSchema,
+  muscleListSchema,
+} from "./muscles.schema";
 
-export { muscleRequestSchema, muscleReturnSchema };
+export { muscleRequestSchema, muscleReturnSchema, muscleListSchema };
