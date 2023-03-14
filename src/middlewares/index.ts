@@ -4,6 +4,7 @@ import { uniqueExerciseName } from "./Exercises/uniqueExercise.middleware";
 import { uniqueMuscleName } from "./Muscles/uniqueMuscle.middleware";
 import { protectData } from "./protecData.middleware";
 import { uniqueEmail } from "./Users/uniqueEmail.middleware";
+import { onlyAdminInteractAll } from "./onlyAdminInteractAll.middleware";
 uniqueMuscleName;
 
 export {
@@ -13,4 +14,5 @@ export {
   uniqueExerciseName,
   ensureExerciseExists,
   uniqueEmail,
+  onlyAdminInteractAll,
 };

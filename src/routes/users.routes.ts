@@ -4,7 +4,7 @@ import {
   listAllUsersController,
   listUserController,
 } from "../controllers";
-import { protectData, uniqueEmail } from "../middlewares";
+import { onlyAdminInteractAll, protectData, uniqueEmail } from "../middlewares";
 import { userRequestSchema } from "../schemas";
 
 export const userRoutes: Router = Router();
@@ -16,4 +16,4 @@ userRoutes.post(
   createUserController
 );
 userRoutes.get("", listAllUsersController);
-userRoutes.get("/:id", listUserController);
+userRoutes.get("/:id", onlyAdminInteractAll, listUserController);

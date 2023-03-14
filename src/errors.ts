@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { JsonWebTokenError } from "jsonwebtoken";
 import { ZodError } from "zod";
 
 export class AppError extends Error {
@@ -24,6 +25,10 @@ export const ErrorHandler = (
 
   if (error instanceof ZodError) {
     return response.status(400).json({ message: error.flatten().fieldErrors });
+  }
+
+  if (error instanceof JsonWebTokenError) {
+    return response.status(401).json({ message: error.message });
   }
 
   console.log(error);
