@@ -3,7 +3,10 @@ import {
   createMuscleController,
   getAllMusclesController,
 } from "../controllers";
-import { updateMuscleController } from "../controllers/muscle.controller";
+import {
+  deleteMuscleGroupController,
+  updateMuscleController,
+} from "../controllers/muscle.controller";
 import {
   ensureMuscleExists,
   protectData,
@@ -27,3 +30,4 @@ muscleRoutes.patch(
   uniqueMuscleName,
   updateMuscleController
 );
+muscleRoutes.delete("/:id", ensureMuscleExists, deleteMuscleGroupController);
