@@ -10,6 +10,12 @@ import {
   muscleReturnSchema,
   muscleListSchema,
 } from "./muscles.schema";
+import {
+  userRequestSchema,
+  userReturnSchema,
+  userListSchema,
+  userUpdateSchema,
+} from "./users.schemas";
 
 export {
   muscleRequestSchema,
@@ -20,4 +26,8 @@ export {
   exerciseListSchema,
   exerciseByGroupListSchema,
   exerciseUpdateSchema,
+  userRequestSchema,
+  userReturnSchema,
+  userListSchema,
+  userUpdateSchema,
 };
