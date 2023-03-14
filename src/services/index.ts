@@ -13,4 +13,9 @@ export {
   getAllMusclesService,
   updateMuscleService,
   deleteMuscleService,
+  createExerciseService,
+  listAllExercisesService,
+  listExerciseByGroupService,
+  updateExerciseService,
+  deleteExerciseService,
 };

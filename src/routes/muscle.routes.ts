@@ -3,11 +3,8 @@ import {
   createMuscleController,
   getAllMusclesController,
   updateMuscleController,
-} from "../controllers";
-import {
   deleteMuscleGroupController,
-  updateMuscleController,
-} from "../controllers/muscle.controller";
+} from "../controllers";
 import {
   ensureMuscleExists,
   protectData,

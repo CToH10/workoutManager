@@ -13,8 +13,13 @@ import {
 } from "./muscle.controller";
 
 export {
-  getAllMusclesController,
   createMuscleController,
-  updateMuscleService,
+  getAllMusclesController,
+  updateMuscleController,
   deleteMuscleGroupController,
+  createExerciseController,
+  listAllExercisesController,
+  listExerciseByGroupController,
+  updateExerciseController,
+  deleteExerciseController,
 };
