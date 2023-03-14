@@ -1,5 +1,9 @@
 import { Router } from "express";
-import { createUserController } from "../controllers";
+import {
+  createUserController,
+  listAllUsersController,
+  listUserController,
+} from "../controllers";
 import { protectData, uniqueEmail } from "../middlewares";
 import { userRequestSchema } from "../schemas";
 
@@ -11,3 +15,5 @@ userRoutes.post(
   uniqueEmail,
   createUserController
 );
+userRoutes.get("", listAllUsersController);
+userRoutes.get("/:id", listUserController);
