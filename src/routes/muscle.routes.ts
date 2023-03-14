@@ -4,7 +4,15 @@ import {
   getAllMusclesController,
   updateMuscleController,
 } from "../controllers";
-import { protectData, uniqueMuscleName } from "../middlewares";
+import {
+  deleteMuscleGroupController,
+  updateMuscleController,
+} from "../controllers/muscle.controller";
+import {
+  ensureMuscleExists,
+  protectData,
+  uniqueMuscleName,
+} from "../middlewares";
 import { muscleRequestSchema } from "../schemas";
 
 export const muscleRoutes: Router = Router();
@@ -19,6 +27,8 @@ muscleRoutes.get("", getAllMusclesController);
 muscleRoutes.patch(
   "/:id",
   protectData(muscleRequestSchema),
+  ensureMuscleExists,
   uniqueMuscleName,
   updateMuscleController
 );
+muscleRoutes.delete("/:id", ensureMuscleExists, deleteMuscleGroupController);

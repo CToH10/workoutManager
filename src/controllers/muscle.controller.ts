@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import {
   createMuscleService,
+  deleteMuscleService,
   getAllMusclesService,
   updateMuscleService,
 } from "../services";
@@ -28,4 +29,13 @@ export const updateMuscleController = async (
   const id: number = Number(request.params.id);
   const updatedMuscle = await updateMuscleService(request.body, id);
   return response.json(updatedMuscle);
+};
+
+export const deleteMuscleGroupController = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  const id: number = Number(request.params.id);
+  await deleteMuscleService(id);
+  return response.status(204).json();
 };
