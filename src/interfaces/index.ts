@@ -6,6 +6,12 @@ import {
   iExerciseUpdate,
 } from "./exercises.interface";
 import { iMuscleRequest, iMuscleReturn, iMuscleList } from "./muscle.interface";
+import {
+  iUserRequest,
+  iUserReturn,
+  iUserList,
+  iUserUpdate,
+} from "./users.interface";
 
 export {
   iMuscleRequest,
@@ -16,4 +22,8 @@ export {
   iExerciseList,
   iExerciseByGroup,
   iExerciseUpdate,
+  iUserRequest,
+  iUserReturn,
+  iUserList,
+  iUserUpdate,
 };

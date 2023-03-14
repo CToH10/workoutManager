@@ -17,7 +17,7 @@ export const onlyAdminInteractAll = (
 
   const info: string | JwtPayload = verify(token, process.env.SECRET_KEY!);
 
-  if (Number(info.sub) !== id && typeof info === "object" && !info.admin) {
+  if (Number(info.sub) !== id && typeof info === "object" && info.admin) {
     throw new AppError("Insufficient permission", 403);
   }
 

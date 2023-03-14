@@ -10,6 +10,7 @@ import { updateMuscleService } from "./Muscles/updateMuscles.service";
 import { createUserService } from "./Users/createUser.service";
 import { listAllUsersService } from "./Users/listAllUsers.service";
 import { listUserService } from "./Users/listUser.service";
+import { updateUserService } from "./Users/updateUser.service";
 
 export {
   createMuscleService,
@@ -24,4 +25,5 @@ export {
   createUserService,
   listAllUsersService,
   listUserService,
+  updateUserService,
 };

@@ -3,6 +3,7 @@ import {
   createUserController,
   listAllUsersController,
   listUserController,
+  updateUserController,
 } from "../controllers";
 import { onlyAdminInteractAll, protectData, uniqueEmail } from "../middlewares";
 import { userRequestSchema } from "../schemas";
@@ -17,3 +18,4 @@ userRoutes.post(
 );
 userRoutes.get("", listAllUsersController);
 userRoutes.get("/:id", onlyAdminInteractAll, listUserController);
+userRoutes.patch("/:id", updateUserController);

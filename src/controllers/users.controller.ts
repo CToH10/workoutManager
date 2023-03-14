@@ -3,6 +3,7 @@ import {
   createUserService,
   listAllUsersService,
   listUserService,
+  updateUserService,
 } from "../services";
 
 export const createUserController = async (
@@ -27,5 +28,14 @@ export const listUserController = async (
 ): Promise<Response> => {
   const id: number = Number(request.params.id);
   const user = await listUserService(id);
+  return response.json(user);
+};
+
+export const updateUserController = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  const id: number = Number(request.params.id);
+  const user = await updateUserService(request.body, id);
   return response.json(user);
 };

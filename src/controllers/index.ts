@@ -15,6 +15,7 @@ import {
   createUserController,
   listAllUsersController,
   listUserController,
+  updateUserController,
 } from "./users.controller";
 
 export {
@@ -30,4 +31,5 @@ export {
   createUserController,
   listAllUsersController,
   listUserController,
+  updateUserController,
 };
