@@ -8,6 +8,7 @@ import { deleteMuscleService } from "./Muscles/deleteMuscleGroup.service";
 import { getAllMusclesService } from "./Muscles/getAllMuscles.service";
 import { updateMuscleService } from "./Muscles/updateMuscles.service";
 import { createUserService } from "./Users/createUser.service";
+import { loginUserService } from "./Login/loginUser.service";
 
 export {
   createMuscleService,
@@ -20,4 +21,5 @@ export {
   updateExerciseService,
   deleteExerciseService,
   createUserService,
+  loginUserService
 };
