@@ -11,6 +11,7 @@ import {
   deleteMuscleGroupController,
   updateMuscleController,
 } from "./muscle.controller";
+import { createUserController } from "./users.controller";
 
 export {
   createMuscleController,
@@ -22,4 +23,5 @@ export {
   listExerciseByGroupController,
   updateExerciseController,
   deleteExerciseController,
+  createUserController,
 };

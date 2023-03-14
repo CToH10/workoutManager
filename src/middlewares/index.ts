@@ -3,6 +3,7 @@ import { ensureExerciseExists } from "./Exercises/ensureExerciseExists.middlewar
 import { uniqueExerciseName } from "./Exercises/uniqueExercise.middleware";
 import { uniqueMuscleName } from "./Muscles/uniqueMuscle.middleware";
 import { protectData } from "./protecData.middleware";
+import { uniqueEmail } from "./Users/uniqueEmail.middleware";
 uniqueMuscleName;
 
 export {
@@ -11,4 +12,5 @@ export {
   ensureMuscleExists,
   uniqueExerciseName,
   ensureExerciseExists,
+  uniqueEmail,
 };

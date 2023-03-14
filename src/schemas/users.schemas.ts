@@ -8,12 +8,14 @@ export const userRequestSchema = z.object({
   admin: z.boolean().optional(),
 });
 
-export const userReturnSchema = userRequestSchema.extend({
-  id: z.number(),
-  createdAt: z.date().or(z.string()),
-  updatedAt: z.date().or(z.string()),
-  deletedAt: z.date().or(z.string()).nullish(),
-});
+export const userReturnSchema = userRequestSchema
+  .extend({
+    id: z.number(),
+    createdAt: z.date().or(z.string()),
+    updatedAt: z.date().or(z.string()),
+    deletedAt: z.date().or(z.string()).nullish(),
+  })
+  .omit({ password: true });
 
 export const userListSchema = z.array(userReturnSchema);
 
