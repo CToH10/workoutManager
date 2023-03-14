@@ -1,4 +1,5 @@
 import { createExerciseService } from "./Exercises/createExercise.service";
+import { deleteExerciseService } from "./Exercises/deleteExercise.service";
 import { listAllExercisesService } from "./Exercises/listAllExercises.service";
 import { listExerciseByGroupService } from "./Exercises/listExerciseByGroup.service";
 import { updateExerciseService } from "./Exercises/updateExercises.service";
@@ -14,4 +15,5 @@ export {
   listExerciseByGroupService,
   updateMuscleService,
   updateExerciseService,
+  deleteExerciseService,
 };

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import {
   createExerciseService,
+  deleteExerciseService,
   listAllExercisesService,
   listExerciseByGroupService,
   updateExerciseService,
@@ -38,4 +39,13 @@ export const updateExerciseController = async (
   const id: number = Number(request.params.id);
   const updatedExercise = await updateExerciseService(request.body, id);
   return response.json(updatedExercise);
+};
+
+export const deleteExerciseController = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  const id: number = Number(request.params.id);
+  await deleteExerciseService(id);
+  return response.status(204).json();
 };

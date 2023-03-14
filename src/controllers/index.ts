@@ -1,5 +1,6 @@
 import {
   createExerciseController,
+  deleteExerciseController,
   listAllExercisesController,
   listExerciseByGroupController,
   updateExerciseController,
@@ -18,4 +19,5 @@ export {
   listExerciseByGroupController,
   updateExerciseController,
   updateMuscleController,
+  deleteExerciseController,
 };

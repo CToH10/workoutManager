@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   createExerciseController,
+  deleteExerciseController,
   listAllExercisesController,
   listExerciseByGroupController,
   updateExerciseController,
@@ -24,3 +25,4 @@ exerciseRoute.patch(
   uniqueExerciseName,
   updateExerciseController
 );
+exerciseRoute.delete("/:id", deleteExerciseController);
