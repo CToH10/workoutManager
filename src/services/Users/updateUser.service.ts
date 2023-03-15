@@ -5,7 +5,8 @@ import { encryptPassword } from "../../utils/encrypt";
 
 export const updateUserService = async (
   data: iUserUpdate,
-  userId: number
+  userId: number,
+  adminToken: boolean
 ): Promise<iUserReturn> => {
   const findUser = await prisma.user.findFirst({
     where: { id: userId },
@@ -15,13 +16,21 @@ export const updateUserService = async (
 
   const newPassword = data.password ? encryptPassword(data.password) : password;
 
-  const sendData: iUserRequest = {
-    name: data.name || name,
-    trainingExp: data.trainingExp || trainingExp!,
-    admin: data.admin || admin!,
-    email: data.email || email,
-    password: newPassword,
-  };
+  const sendData: iUserRequest = adminToken
+    ? {
+        name: data.name || name,
+        trainingExp: data.trainingExp || trainingExp!,
+        admin: data.admin || admin!,
+        email: data.email || email,
+        password: newPassword,
+      }
+    : {
+        name: data.name || name,
+        trainingExp: trainingExp!,
+        admin: admin!,
+        email: data.email || email,
+        password: newPassword,
+      };
 
   const userUpdated = await prisma.user.update({
     where: { id: userId },
