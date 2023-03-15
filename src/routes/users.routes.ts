@@ -6,6 +6,7 @@ import {
   updateUserController,
 } from "../controllers";
 import {
+  ensureUserExists,
   onlyAdminInteractAll,
   protectData,
   uniqueEmail,
@@ -22,5 +23,17 @@ userRoutes.post(
   createUserController
 );
 userRoutes.get("", listAllUsersController);
-userRoutes.get("/:id", validateToken, onlyAdminInteractAll, listUserController);
-userRoutes.patch("/:id", validateToken, updateUserController);
+userRoutes.get(
+  "/:id",
+  ensureUserExists,
+  validateToken,
+
+  listUserController
+);
+userRoutes.patch(
+  "/:id",
+  ensureUserExists,
+  validateToken,
+  onlyAdminInteractAll,
+  updateUserController
+);

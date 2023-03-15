@@ -6,6 +6,7 @@ import { protectData } from "./protecData.middleware";
 import { uniqueEmail } from "./Users/uniqueEmail.middleware";
 import { onlyAdminInteractAll } from "./onlyAdminInteractAll.middleware";
 import { validateToken } from "./validateToken.middleware";
+import { ensureUserExists } from "./Users/ensureUserExists.middleware";
 uniqueMuscleName;
 
 export {
@@ -17,4 +18,5 @@ export {
   uniqueEmail,
   onlyAdminInteractAll,
   validateToken,
+  ensureUserExists,
 };
