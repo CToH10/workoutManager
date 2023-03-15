@@ -18,7 +18,7 @@ export const listAllUsersController = async (
   request: Request,
   response: Response
 ): Promise<Response> => {
-  const admin: boolean = request.admin;
+  const admin: boolean = request.info.admin;
   const list = await listAllUsersService(admin);
   return response.json(list);
 };
@@ -37,6 +37,7 @@ export const updateUserController = async (
   response: Response
 ): Promise<Response> => {
   const id: number = Number(request.params.id);
-  // const user = await updateUserService(request.body, id, admin);
-  return response.json();
+  const admin: boolean = request.info.admin;
+  const user = await updateUserService(request.body, id, admin);
+  return response.json(user);
 };
