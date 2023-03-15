@@ -18,7 +18,7 @@ model user {
   id Int @id @default(autoincrement())
   name String @db.VarChar(50)
   email String @db.VarChar(50) @unique
-  trainingExp TrainingExp? @default(beg)
+  trainingExp TrainingExp @default(beg)
   password String @db.VarChar(120)
   admin Boolean? @default(false)
   createdAt DateTime @default(now())
