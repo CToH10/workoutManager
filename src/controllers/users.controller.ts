@@ -37,6 +37,6 @@ export const updateUserController = async (
   response: Response
 ): Promise<Response> => {
   const id: number = Number(request.params.id);
-  const user = await updateUserService(request.body, id);
-  return response.json(user);
+  // const user = await updateUserService(request.body, id, admin);
+  return response.json();
 };
