@@ -18,7 +18,8 @@ export const listAllUsersController = async (
   request: Request,
   response: Response
 ): Promise<Response> => {
-  const list = await listAllUsersService();
+  const admin: boolean = request.admin;
+  const list = await listAllUsersService(admin);
   return response.json(list);
 };
 

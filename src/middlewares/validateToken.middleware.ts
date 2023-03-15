@@ -10,7 +10,9 @@ export const validateToken = (
   const token = request.headers.authorization?.replace("Bearer ", "");
 
   if (token) {
-    jwt.verify(token, JSON.stringify(process.env.SECRET_KEY));
+    const info = jwt.verify(token, JSON.stringify(process.env.SECRET_KEY));
+
+    console.log(info);
   } else {
     throw new AppError("Missing bearer token", 401);
   }

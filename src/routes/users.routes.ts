@@ -8,6 +8,7 @@ import {
 import {
   ensureUserExists,
   onlyAdminInteractAll,
+  onlyAdminReadAll,
   protectData,
   uniqueEmail,
   validateToken,
@@ -22,7 +23,7 @@ userRoutes.post(
   uniqueEmail,
   createUserController
 );
-userRoutes.get("", listAllUsersController);
+userRoutes.get("", onlyAdminReadAll, listAllUsersController);
 userRoutes.get(
   "/:id",
   ensureUserExists,

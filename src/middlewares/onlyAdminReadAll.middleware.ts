@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import { JwtPayload, verify } from "jsonwebtoken";
 import { AppError } from "../errors";
 
-export const onlyAdminInteractAll = (
+export const onlyAdminReadAll = (
   request: Request,
   response: Response,
   next: NextFunction
@@ -12,7 +12,6 @@ export const onlyAdminInteractAll = (
     "Bearer ",
     ""
   );
-  const id: number = parseInt(request.params.id);
 
   if (!token) {
     throw new AppError("Missing bearer token", 401);
@@ -25,10 +24,6 @@ export const onlyAdminInteractAll = (
 
   if (typeof info === "object" && info.admin) {
     request.admin = info.admin;
-  }
-
-  if (Number(info.sub) !== id && typeof info === "object" && !info.admin) {
-    throw new AppError("Insufficient permission", 403);
   }
 
   return next();
