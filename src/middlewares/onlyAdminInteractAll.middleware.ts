@@ -1,6 +1,5 @@
 import "dotenv/config";
 import { NextFunction, Request, Response } from "express";
-import { JwtPayload, verify } from "jsonwebtoken";
 import { AppError } from "../errors";
 
 export const onlyAdminInteractAll = (
