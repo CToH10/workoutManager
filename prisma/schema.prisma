@@ -24,6 +24,7 @@ model user {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   deletedAt DateTime?
+  enabled Boolean? @default(true)
   dailyWorkout daily_workout[]
 }
 
