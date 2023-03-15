@@ -5,7 +5,7 @@ import { userReturnSchema } from "../../schemas";
 
 export const createUserService = async (
   userData: iUserRequest
-) => {
+): Promise<iUserReturn> => {
   const { name, email, trainingExp, password, admin } = userData;
 
   const sendData = {

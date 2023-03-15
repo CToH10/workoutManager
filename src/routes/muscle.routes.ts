@@ -9,6 +9,7 @@ import {
   ensureMuscleExists,
   protectData,
   uniqueMuscleName,
+  validateToken,
 } from "../middlewares";
 import { muscleRequestSchema } from "../schemas";
 
@@ -18,6 +19,7 @@ muscleRoutes.post(
   "",
   protectData(muscleRequestSchema),
   uniqueMuscleName,
+  validateToken,
   createMuscleController
 );
 muscleRoutes.get("", getAllMusclesController);
@@ -26,6 +28,12 @@ muscleRoutes.patch(
   protectData(muscleRequestSchema),
   ensureMuscleExists,
   uniqueMuscleName,
+  validateToken,
   updateMuscleController
 );
-muscleRoutes.delete("/:id", ensureMuscleExists, deleteMuscleGroupController);
+muscleRoutes.delete(
+  "/:id",
+  ensureMuscleExists,
+  validateToken,
+  deleteMuscleGroupController
+);

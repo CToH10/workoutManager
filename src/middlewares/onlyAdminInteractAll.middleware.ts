@@ -8,14 +8,20 @@ export const onlyAdminInteractAll = (
   response: Response,
   next: NextFunction
 ) => {
-  const token: string | undefined = request.headers.authorization?.slice(7);
+  const token: string | undefined = request.headers.authorization?.replace(
+    "Bearer ",
+    ""
+  );
   const id: number = parseInt(request.params.id);
 
   if (!token) {
     throw new AppError("Missing bearer token", 401);
   }
 
-  const info: string | JwtPayload = verify(token, process.env.SECRET_KEY!);
+  const info: string | JwtPayload = verify(
+    token,
+    JSON.stringify(process.env.SECRET_KEY)
+  );
 
   if (Number(info.sub) !== id && typeof info === "object" && info.admin) {
     throw new AppError("Insufficient permission", 403);

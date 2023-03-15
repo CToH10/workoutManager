@@ -7,7 +7,6 @@ export const validateToken = (
   response: Response,
   next: NextFunction
 ) => {
-
   const token = request.headers.authorization?.replace("Bearer ", "");
 
   if (token) {

@@ -10,6 +10,7 @@ import {
   ensureExerciseExists,
   protectData,
   uniqueExerciseName,
+  validateToken,
 } from "../middlewares";
 import { exerciseRequestSchema, exerciseUpdateSchema } from "../schemas";
 
@@ -19,6 +20,7 @@ exerciseRoute.post(
   "",
   protectData(exerciseRequestSchema),
   uniqueExerciseName,
+  validateToken,
   createExerciseController
 );
 exerciseRoute.get("", listAllExercisesController);
@@ -28,6 +30,12 @@ exerciseRoute.patch(
   protectData(exerciseUpdateSchema),
   ensureExerciseExists,
   uniqueExerciseName,
+  validateToken,
   updateExerciseController
 );
-exerciseRoute.delete("/:id", ensureExerciseExists, deleteExerciseController);
+exerciseRoute.delete(
+  "/:id",
+  ensureExerciseExists,
+  validateToken,
+  deleteExerciseController
+);

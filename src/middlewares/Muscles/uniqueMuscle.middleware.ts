@@ -8,16 +8,19 @@ export const uniqueMuscleName = async (
   next: NextFunction
 ) => {
   const name: string = request.body.name;
-  const alreadyExists = await prisma.muscle_group
-    .findUnique({
-      where: {
-        name: JSON.parse(name),
-      },
-    })
-    .catch((err) => console.error(err));
 
-  if (alreadyExists) {
-    throw new AppError(`${name} muscle group already exists`, 409);
+  if (name) {
+    const alreadyExists = await prisma.muscle_group
+      .findUnique({
+        where: {
+          name: name,
+        },
+      })
+      .catch((err) => console.error(err));
+
+    if (alreadyExists) {
+      throw new AppError(`${name} muscle group already exists`, 409);
+    }
   }
 
   return next();
