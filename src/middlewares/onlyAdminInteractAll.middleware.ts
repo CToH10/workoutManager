@@ -12,7 +12,7 @@ export const onlyAdminInteractAll = (
 
   const { id, admin } = request.info;
 
-  if (Number(id) !== paramsId && admin) {
+  if (Number(id) !== paramsId && !admin) {
     throw new AppError("Insufficient permission", 403);
   }
 
