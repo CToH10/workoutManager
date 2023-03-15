@@ -28,7 +28,7 @@ userRoutes.get(
   "/:id",
   ensureUserExists,
   validateToken,
-
+  onlyAdminInteractAll,
   listUserController
 );
 userRoutes.patch(
