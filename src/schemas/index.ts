@@ -1,4 +1,8 @@
 import {
+  dailyWorkoutRequestSchema,
+  dailyWorkoutReturnSchema,
+} from "./dailyWorkout.schema";
+import {
   exerciseRequestSchema,
   exerciseReturnSchema,
   exerciseListSchema,
@@ -30,4 +34,6 @@ export {
   userReturnSchema,
   userListSchema,
   userUpdateSchema,
+  dailyWorkoutRequestSchema,
+  dailyWorkoutReturnSchema,
 };

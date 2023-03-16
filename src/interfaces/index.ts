@@ -1,4 +1,8 @@
 import {
+  iDailyWorkoutRequest,
+  iDailyWorkoutReturn,
+} from "./dailyWorkout.interface";
+import {
   iExerciseRequest,
   iExerciseReturn,
   iExerciseList,
@@ -26,4 +30,6 @@ export {
   iUserReturn,
   iUserList,
   iUserUpdate,
+  iDailyWorkoutRequest,
+  iDailyWorkoutReturn,
 };
