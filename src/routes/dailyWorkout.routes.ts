@@ -5,6 +5,7 @@ import {
   listWorkoutByIdController,
 } from "../controllers";
 import {
+  ensureExerciseExists,
   onlyAdminInteractAll,
   onlyOneOfEach,
   protectData,
@@ -27,6 +28,7 @@ workoutRoute.post(
 workoutRoute.post(
   "/:id",
   protectData(dailyExerciseRequestSchema),
+  ensureExerciseExists,
   validateToken,
   onlyAdminInteractAll,
   onlyOneOfEach,
