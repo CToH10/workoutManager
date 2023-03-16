@@ -13,6 +13,7 @@ import { listAllUsersService } from "./Users/listAllUsers.service";
 import { listUserService } from "./Users/listUser.service";
 import { updateUserService } from "./Users/updateUser.service";
 import { createWorkoutService } from "./DailyWorkout/createWorkout.service";
+import { createDailyExerciseService } from "./DailyExercise/createDailyExercise.service";
 
 export {
   createMuscleService,
@@ -30,4 +31,5 @@ export {
   listUserService,
   updateUserService,
   createWorkoutService,
+  createDailyExerciseService,
 };
