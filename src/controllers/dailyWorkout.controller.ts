@@ -9,7 +9,8 @@ export const createWorkoutController = async (
   request: Request,
   response: Response
 ): Promise<Response> => {
-  const workout = await createWorkoutService(request.body);
+  const userId = Number(request.info.id);
+  const workout = await createWorkoutService(userId);
   return response.status(201).json(workout);
 };
 

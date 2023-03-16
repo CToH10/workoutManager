@@ -12,16 +12,12 @@ import {
   protectData,
   validateToken,
 } from "../middlewares";
-import {
-  dailyExerciseRequestSchema,
-  dailyWorkoutRequestSchema,
-} from "../schemas";
+import { dailyExerciseRequestSchema } from "../schemas";
 
 export const workoutRoute: Router = Router();
 
 workoutRoute.post(
   "",
-  protectData(dailyWorkoutRequestSchema),
   validateToken,
   onlyAdminInteractAll,
   createWorkoutController
