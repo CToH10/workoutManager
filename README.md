@@ -337,4 +337,102 @@ Standard answer returns no body and status `204`. <br>
 
 ### Create daily workout - POST /workout <br>
 
-Must provide access token and.<br>
+Must provide access token.<br>
+
+Standard answer:<br>
+
+```json
+{
+  "id": 1,
+  "date": "2023-03-16T17:46:59.500Z",
+  "daily_exercise": [],
+  "user": {
+    "name": "Test Name"
+  }
+}
+```
+
+<br>
+
+### Populate daily exercises - POST /workout/`${id}` <br>
+
+Must provide `exerciseId`, `weight`, `series`, `reps`.<br>
+Standard answer:<br>
+
+```json
+{
+  "id": 1,
+  "date": "2023-03-16T12:55:02.924Z",
+  "daily_exercise": [
+    {
+      "weight": 6,
+      "series": 3,
+      "reps": 15,
+      "id": 1,
+      "exercise": {
+        "name": "Lateral raises"
+      },
+      "totalLoad": 270
+    },
+    {
+      "weight": 25,
+      "series": 3,
+      "reps": 15,
+      "id": 2,
+      "exercise": {
+        "name": "Fly"
+      },
+      "totalLoad": 1125
+    }
+  ],
+  "user": {
+    "name": "Test Name"
+  }
+}
+```
+
+<br>
+
+### Get workout by id - GET /workout/`${id}` <br>
+
+Standard answer:<br>
+
+```json
+{
+  "id": 2,
+  "date": "2023-03-16T13:07:06.249Z",
+  "daily_exercise": [],
+  "user": {
+    "name": "Test Name"
+  }
+}
+```
+
+<br>
+
+### Get all workouts by user - GET /workout/user/`${userId}` <br>
+
+Standard answer:<br>
+
+```json
+{
+  "name": "Test Name",
+  "email": "emailEdited@mail.com",
+  "trainingExp": "beg",
+  "admin": false,
+  "id": 1,
+  "createdAt": "2023-03-15T12:49:50.075Z",
+  "updatedAt": "2023-03-15T12:49:50.075Z",
+  "deletedAt": null,
+  "dailyWorkout": [
+    {
+      "date": "2023-03-16T12:55:02.924Z",
+      "id": 1
+    },
+    {
+      "date": "2023-03-16T13:07:06.249Z",
+      "id": 2
+    }
+  ]
+}
+```
