@@ -2,6 +2,8 @@ import { Router } from "express";
 import {
   createDailyExerciseController,
   createWorkoutController,
+  deleteExerciseWorkoutController,
+  deleteWorkoutController,
   listWorkoutByIdController,
   listWorkoutByUserController,
 } from "../controllers";
@@ -31,17 +33,27 @@ workoutRoute.post(
   onlyOneOfEach,
   createDailyExerciseController
 );
-
 workoutRoute.get(
   "/:id",
   validateToken,
   onlyAdminInteractAll,
   listWorkoutByIdController
 );
-
 workoutRoute.get(
   "/user/:id",
   validateToken,
   onlyAdminInteractAll,
   listWorkoutByUserController
+);
+workoutRoute.delete(
+  "/:id",
+  validateToken,
+  onlyAdminInteractAll,
+  deleteWorkoutController
+);
+workoutRoute.delete(
+  "/:id/:exerciseId",
+  validateToken,
+  onlyAdminInteractAll,
+  deleteExerciseWorkoutController
 );

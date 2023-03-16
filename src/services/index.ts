@@ -16,6 +16,8 @@ import { createWorkoutService } from "./DailyWorkout/createWorkout.service";
 import { createDailyExerciseService } from "./DailyExercise/createDailyExercise.service";
 import { listWorkoutByIdService } from "./DailyWorkout/listWorkoutById.service";
 import { listWorkoutByUserService } from "./DailyWorkout/listWorkoutByUser.service";
+import { deleteWorkoutService } from "./DailyWorkout/deleteWorkout.service";
+import { deleteExerciseWorkoutService } from "./DailyExercise/deleteExercise.service";
 
 export {
   createMuscleService,
@@ -36,4 +38,6 @@ export {
   createDailyExerciseService,
   listWorkoutByIdService,
   listWorkoutByUserService,
+  deleteWorkoutService,
+  deleteExerciseWorkoutService,
 };

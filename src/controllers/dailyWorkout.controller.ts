@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import {
   createWorkoutService,
+  deleteExerciseWorkoutService,
+  deleteWorkoutService,
   listWorkoutByIdService,
   listWorkoutByUserService,
 } from "../services";
@@ -30,4 +32,22 @@ export const listWorkoutByUserController = async (
   const id: number = Number(request.params.id);
   const workout = await listWorkoutByUserService(id);
   return response.json(workout);
+};
+
+export const deleteWorkoutController = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  const id: number = Number(request.params.id);
+  await deleteWorkoutService(id);
+  return response.status(204).json();
+};
+
+export const deleteExerciseWorkoutController = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  const id: number = Number(request.params.exerciseId);
+  await deleteExerciseWorkoutService(id);
+  return response.status(204).json();
 };
