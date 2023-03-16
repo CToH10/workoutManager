@@ -6,6 +6,7 @@ import {
 } from "../controllers";
 import {
   onlyAdminInteractAll,
+  onlyOneOfEach,
   protectData,
   validateToken,
 } from "../middlewares";
@@ -28,6 +29,7 @@ workoutRoute.post(
   protectData(dailyExerciseRequestSchema),
   validateToken,
   onlyAdminInteractAll,
+  onlyOneOfEach,
   createDailyExerciseController
 );
 
