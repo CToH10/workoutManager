@@ -1,12 +1,12 @@
 import { prisma } from "../../app";
-import { iDailyWorkoutRequest, iDailyWorkoutReturn } from "../../interfaces";
+import { iDailyWorkoutReturn } from "../../interfaces";
 import { dailyWorkoutReturnSchema } from "../../schemas";
 
 export const createWorkoutService = async (
-  data: iDailyWorkoutRequest
+  userId: number
 ): Promise<iDailyWorkoutReturn> => {
   const workout = await prisma.daily_workout.create({
-    data: data,
+    data: { userId: userId },
     include: {
       daily_exercise: { include: { exercise: { select: { name: true } } } },
       user: { select: { name: true } },
@@ -14,8 +14,6 @@ export const createWorkoutService = async (
   });
 
   const validatedWorkout = dailyWorkoutReturnSchema.parse(workout);
-
-  console.log(workout);
 
   return validatedWorkout;
 };

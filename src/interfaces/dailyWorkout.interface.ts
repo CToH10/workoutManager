@@ -1,9 +1,4 @@
 import { z } from "zod";
-import {
-  dailyWorkoutRequestSchema,
-  dailyWorkoutReturnSchema,
-} from "../schemas";
-
-export type iDailyWorkoutRequest = z.infer<typeof dailyWorkoutRequestSchema>;
+import { dailyWorkoutReturnSchema } from "../schemas";
 
 export type iDailyWorkoutReturn = z.infer<typeof dailyWorkoutReturnSchema>;
