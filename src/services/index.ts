@@ -12,6 +12,7 @@ import { loginUserService } from "./Login/loginUser.service";
 import { listAllUsersService } from "./Users/listAllUsers.service";
 import { listUserService } from "./Users/listUser.service";
 import { updateUserService } from "./Users/updateUser.service";
+import { createWorkoutService } from "./DailyWorkout/createWorkout.service";
 
 export {
   createMuscleService,
@@ -28,4 +29,5 @@ export {
   listAllUsersService,
   listUserService,
   updateUserService,
+  createWorkoutService,
 };
