@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   createDailyExerciseController,
   createWorkoutController,
+  listWorkoutByIdController,
 } from "../controllers";
 import {
   onlyAdminInteractAll,
@@ -28,4 +29,11 @@ workoutRoute.post(
   validateToken,
   onlyAdminInteractAll,
   createDailyExerciseController
+);
+
+workoutRoute.get(
+  "/:id",
+  validateToken,
+  onlyAdminInteractAll,
+  listWorkoutByIdController
 );

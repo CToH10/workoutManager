@@ -9,10 +9,13 @@ export const createWorkoutService = async (
     data: data,
     include: {
       daily_exercise: { include: { exercise: { select: { name: true } } } },
+      user: { select: { name: true } },
     },
   });
 
   const validatedWorkout = dailyWorkoutReturnSchema.parse(workout);
+
+  console.log(workout);
 
   return validatedWorkout;
 };

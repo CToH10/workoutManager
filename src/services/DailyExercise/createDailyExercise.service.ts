@@ -1,11 +1,11 @@
 import { prisma } from "../../app";
-import { iDailyExerciseRequest } from "../../interfaces";
+import { iDailyExerciseRequest, iDailyExerciseReturn } from "../../interfaces";
 import { dailyExerciseReturnSchema } from "../../schemas";
 
 export const createDailyExerciseService = async (
   data: iDailyExerciseRequest,
   id: number
-) => {
+): Promise<iDailyExerciseReturn> => {
   const sendData = {
     ...data,
     dailyWorkoutId: id,

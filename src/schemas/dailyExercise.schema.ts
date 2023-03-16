@@ -16,9 +16,6 @@ export const dailyExerciseSchema = dailyExerciseRequestSchema
   })
   .omit({ exerciseId: true });
 
-export const dailyExerciseReturnSchema = dailyWorkoutReturnSchema
-  .extend({
-    user: z.object({ name: z.string() }),
-    daily_exercise: z.array(dailyExerciseSchema),
-  })
-  .omit({ userId: true });
+export const dailyExerciseReturnSchema = dailyWorkoutReturnSchema.extend({
+  daily_exercise: z.array(dailyExerciseSchema),
+});
