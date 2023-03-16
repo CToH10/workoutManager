@@ -7,6 +7,9 @@ export const createWorkoutService = async (
 ): Promise<iDailyWorkoutReturn> => {
   const workout = await prisma.daily_workout.create({
     data: data,
+    include: {
+      daily_exercise: { include: { exercise: { select: { name: true } } } },
+    },
   });
 
   const validatedWorkout = dailyWorkoutReturnSchema.parse(workout);

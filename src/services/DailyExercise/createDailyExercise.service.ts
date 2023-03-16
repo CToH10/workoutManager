@@ -1,5 +1,6 @@
 import { prisma } from "../../app";
 import { iDailyExerciseRequest } from "../../interfaces";
+import { dailyExerciseReturnSchema } from "../../schemas";
 
 export const createDailyExerciseService = async (
   data: iDailyExerciseRequest,
@@ -21,5 +22,7 @@ export const createDailyExerciseService = async (
     },
   });
 
-  return returnWorkout;
+  const validatedList = dailyExerciseReturnSchema.parse(returnWorkout);
+
+  return validatedList;
 };
