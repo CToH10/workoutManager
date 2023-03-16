@@ -1,19 +1,19 @@
 # WORKOUT MANAGER
 
-## Descrição
+## Description
 
 This API provides a way to carefully document and manage your workouts.
 
-## Base Url da API
+## Base Url
 
-This is the base Url to be used before endpoints: <br>
+This is the base Url to be used before endpoints:<br>
 http://workoutmanager.com
 
 ## Endpoints: Users
 
-### Cadastrar usuário - POST /users <br>
+### Register user - POST /users <br>
 
-Email is unique.<br>
+Email is unique<br>
 User must contain:<br>
 
 ```json
@@ -26,7 +26,7 @@ User must contain:<br>
 ```
 
 <br>
-Standard answer: <br>
+Standard answer:<br>
 
 ```json
 {
@@ -46,7 +46,7 @@ Standard answer: <br>
 Must provide access token<br>
 Only admins can update `admin` and `trainingExp`<br>
 Admin can updated any user<br>
-Standard answer with edited info: <br>
+Standard answer with edited info:<br>
 
 ```json
 {
@@ -64,8 +64,8 @@ Standard answer with edited info: <br>
 ### Delete user - DELETE /users/`${id}` <br>
 
 Must provide access token<br>
-Information is kept, user is disabled.<br>
-Admin can delete any user<br>
+Information is kept, user is disabled<br>
+User can only delete themselves, admin can delete any user<br>
 
 Standard answer returns no body and status `204` <br>
 
@@ -73,7 +73,7 @@ Standard answer returns no body and status `204` <br>
 
 Must provide access token<br>
 User can only access own profile, admin can access any user<br>
-Standard answer: <br>
+Standard answer:<br>
 
 ```json
 {
@@ -92,7 +92,7 @@ Standard answer: <br>
 
 Must provide access token<br>
 Users only have access to other active users<br>
-Standard answer: <br>
+Standard answer:<br>
 
 ```json
 [
@@ -133,7 +133,7 @@ Standard answer: <br>
 
 ### Login - POST /login <br>
 
-Must provide email and password.<br>
+Must provide email and password<br>
 Standard answer:<br>
 
 ```json
@@ -144,12 +144,12 @@ Standard answer:<br>
 
 ## Endpoint: Muscle Groups <br>
 
-All routes need access token.<br>
-Only admins can access `/muscles`.<br>
+All routes need access token<br>
+Only admins can access `/muscles`<br>
 
 ### Create Muscle Group - POST /muscles <br>
 
-Must provide name.<br>
+Must provide name<br>
 
 ```json
 {
@@ -186,7 +186,7 @@ Standard answer:<br>
 
 ### List all muscle groups - GET /muscles <br>
 
-Will list all exercises registered to that muscle group.<br>
+Will list all exercises registered to that muscle group<br>
 Standard answer:<br>
 
 ```json
@@ -219,17 +219,17 @@ Standard answer:<br>
 
 ### Delete muscle group - DELETE /muscles <br>
 
-Standard answer returns no body and status `204`
+Standard answer returns no body and status `204` <br>
 
 ## Endpoint: Exercises <br>
 
-All routes need access token.<br>
-Only admins can access `/exercises`.<br>
+All routes need access token<br>
+Only admins can access `/exercises`<br>
 
 ### Create exercise - POST /exercise <br>
 
-Must provide `muscleId` and `name`.<br>
-Can provide `description`.<br>
+Must provide `muscleId` and `name`<br>
+Can provide `description`<br>
 
 Standard answer:<br>
 
@@ -289,7 +289,7 @@ Standard answer:<br>
 
 <br>
 
-### List exercises by muscle group - GET /exercises/`${muscleId}`
+### List exercises by muscle group - GET /exercises/`${muscleId}` <br>
 
 Standard answer:<br>
 
@@ -335,7 +335,7 @@ Standard answer returns no body and status `204`. <br>
 
 ### Create daily workout - POST /workout <br>
 
-Must provide access token.<br>
+Must provide access token<br>
 
 Standard answer:<br>
 
@@ -354,7 +354,7 @@ Standard answer:<br>
 
 ### Populate daily exercises - POST /workout/`${id}` <br>
 
-Must provide `exerciseId`, `weight`, `series`, `reps`.<br>
+Must provide `exerciseId`, `weight`, `series`, `reps`<br>
 Standard answer:<br>
 
 ```json
