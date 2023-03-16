@@ -42,12 +42,3 @@ export const deleteWorkoutController = async (
   await deleteWorkoutService(id);
   return response.status(204).json();
 };
-
-export const deleteExerciseWorkoutController = async (
-  request: Request,
-  response: Response
-): Promise<Response> => {
-  const id: number = Number(request.params.exerciseId);
-  await deleteExerciseWorkoutService(id);
-  return response.status(204).json();
-};

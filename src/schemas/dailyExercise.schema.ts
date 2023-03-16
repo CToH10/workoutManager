@@ -19,3 +19,6 @@ export const dailyExerciseSchema = dailyExerciseRequestSchema
 export const dailyExerciseReturnSchema = dailyWorkoutReturnSchema.extend({
   daily_exercise: z.array(dailyExerciseSchema),
 });
+
+export const dailyExerciseUpdateSchema =
+  dailyExerciseRequestSchema.deepPartial();

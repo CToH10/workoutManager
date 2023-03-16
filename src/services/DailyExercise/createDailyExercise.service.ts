@@ -22,7 +22,7 @@ export const createDailyExerciseService = async (
     },
   });
 
-  const validatedList = dailyExerciseReturnSchema.parse(returnWorkout);
+  const validatedWorkout = dailyExerciseReturnSchema.parse(returnWorkout);
 
-  return validatedList;
+  return validatedWorkout;
 };

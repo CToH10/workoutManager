@@ -6,6 +6,7 @@ import {
   deleteWorkoutController,
   listWorkoutByIdController,
   listWorkoutByUserController,
+  updateDailyExerciseWorkoutController,
 } from "../controllers";
 import {
   ensureExerciseExists,
@@ -56,4 +57,10 @@ workoutRoute.delete(
   validateToken,
   onlyAdminInteractAll,
   deleteExerciseWorkoutController
+);
+workoutRoute.patch(
+  "/:id/:exerciseId",
+  validateToken,
+  onlyAdminInteractAll,
+  updateDailyExerciseWorkoutController
 );

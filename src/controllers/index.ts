@@ -1,7 +1,10 @@
-import { createDailyExerciseController } from "./dailyExercise.controller";
+import {
+  deleteExerciseWorkoutController,
+  createDailyExerciseController,
+  updateDailyExerciseWorkoutController,
+} from "./dailyExercise.controller";
 import {
   createWorkoutController,
-  deleteExerciseWorkoutController,
   deleteWorkoutController,
   listWorkoutByIdController,
   listWorkoutByUserController,
@@ -46,4 +49,5 @@ export {
   listWorkoutByUserController,
   deleteWorkoutController,
   deleteExerciseWorkoutController,
+  updateDailyExerciseWorkoutController,
 };

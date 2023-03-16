@@ -2,6 +2,7 @@ import {
   dailyExerciseRequestSchema,
   dailyExerciseReturnSchema,
   dailyExerciseSchema,
+  dailyExerciseUpdateSchema,
 } from "./dailyExercise.schema";
 import {
   dailyWorkoutReturnSchema,
@@ -44,4 +45,5 @@ export {
   dailyExerciseReturnSchema,
   dailyExerciseSchema,
   workoutByUserSchema,
+  dailyExerciseUpdateSchema,
 };
