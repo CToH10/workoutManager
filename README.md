@@ -333,9 +333,9 @@ Standard answer returns no body and status `204`. <br>
 
 ## Endpoints: Daily Workout <br>
 
-### Create daily workout - POST /workout <br>
+All routes must provide access token<br>
 
-Must provide access token<br>
+### Create daily workout - POST /workout <br>
 
 Standard answer:<br>
 
