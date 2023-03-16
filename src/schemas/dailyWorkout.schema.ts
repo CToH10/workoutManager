@@ -1,5 +1,6 @@
-import { z } from "zod";
+import { number, z } from "zod";
 import { dailyExerciseSchema } from "./dailyExercise.schema";
+import { userReturnSchema } from "./users.schemas";
 
 export const dailyWorkoutRequestSchema = z.object({
   userId: z.number(),
@@ -15,3 +16,12 @@ export const dailyWorkoutReturnSchema = dailyWorkoutRequestSchema
     }),
   })
   .omit({ userId: true });
+
+export const workoutByUserSchema = userReturnSchema.extend({
+  dailyWorkout: z.array(
+    z.object({
+      date: z.string().or(z.date()),
+      id: z.number(),
+    })
+  ),
+});

@@ -3,6 +3,7 @@ import {
   createDailyExerciseController,
   createWorkoutController,
   listWorkoutByIdController,
+  listWorkoutByUserController,
 } from "../controllers";
 import {
   ensureExerciseExists,
@@ -40,4 +41,11 @@ workoutRoute.get(
   validateToken,
   onlyAdminInteractAll,
   listWorkoutByIdController
+);
+
+workoutRoute.get(
+  "/user/:id",
+  validateToken,
+  onlyAdminInteractAll,
+  listWorkoutByUserController
 );
