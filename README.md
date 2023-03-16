@@ -4,8 +4,6 @@
 
 This API provides a way to carefully document and manage your workouts.
 
-## Carregar endpoints no insomnia
-
 ## Base Url da API
 
 This is the base Url to be used before endpoints: <br>
