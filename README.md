@@ -129,6 +129,43 @@ Standard answer:<br>
 ]
 ```
 
+<br>
+
+## Endpoint: Admin <br>
+
+### Create admin - POST /admin <br>
+
+Email is unique<br>
+Admin must contain `admin`:<br>
+
+```json
+{
+  "email": "adminEmail@email.com",
+  "password": "admin",
+  "name": "Test Admin",
+  "trainingExp": "pro",
+  "admin": false
+}
+```
+
+<br>
+Standard answer:<br>
+
+```json
+{
+  "id": 4,
+  "email": "adminEmail@email.com",
+  "name": "Test Admin",
+  "trainingExp": "pro",
+  "admin": true,
+  "createdAt": "2023-03-16T17:05:39.095Z",
+  "updatedAt": "2023-03-16T17:05:39.095Z",
+  "deletedAt": null
+}
+```
+
+<br>
+
 ## Endpoint: Login <br>
 
 ### Login - POST /login <br>
