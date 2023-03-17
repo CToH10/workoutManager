@@ -4,9 +4,10 @@ import {
   userReturnSchema,
   userListSchema,
   userUpdateSchema,
+  userAdminRequestSchema,
 } from "../schemas";
 
-export type iUserRequest = z.infer<typeof userRequestSchema>;
+export type iUserRequest = z.infer<typeof userAdminRequestSchema>;
 
 export type iUserReturn = z.infer<typeof userReturnSchema>;
 

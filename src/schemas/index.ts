@@ -15,6 +15,7 @@ import {
   userReturnSchema,
   userListSchema,
   userUpdateSchema,
+  userAdminRequestSchema,
 } from "./users.schemas";
 
 export {
@@ -30,4 +31,5 @@ export {
   userReturnSchema,
   userListSchema,
   userUpdateSchema,
+  userAdminRequestSchema,
 };

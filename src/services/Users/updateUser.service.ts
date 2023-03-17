@@ -16,7 +16,7 @@ export const updateUserService = async (
 
   const newPassword = data.password ? encryptPassword(data.password) : password;
 
-  const sendData: iUserRequest = adminToken
+  const sendData = adminToken
     ? {
         name: data.name || name,
         trainingExp: data.trainingExp || trainingExp!,

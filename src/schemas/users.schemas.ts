@@ -5,7 +5,10 @@ export const userRequestSchema = z.object({
   email: z.string().max(50).email(),
   trainingExp: z.enum(["beg", "int", "adv", "pro"]).optional(),
   password: z.string(),
-  admin: z.boolean().optional(),
+});
+
+export const userAdminRequestSchema = userRequestSchema.extend({
+  admin: z.boolean().transform((val) => (val = true)),
 });
 
 export const userReturnSchema = userRequestSchema
@@ -19,4 +22,4 @@ export const userReturnSchema = userRequestSchema
 
 export const userListSchema = z.array(userReturnSchema);
 
-export const userUpdateSchema = userRequestSchema.deepPartial();
+export const userUpdateSchema = userAdminRequestSchema.deepPartial();
