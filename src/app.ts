@@ -7,6 +7,7 @@ import {
   loginRoutes,
   muscleRoutes,
   userRoutes,
+  adminRoutes,
 } from "./routes";
 import { ErrorHandler } from "./errors";
 

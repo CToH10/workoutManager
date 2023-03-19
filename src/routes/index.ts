@@ -5,4 +5,11 @@ import { loginRoutes } from "./login.routes";
 import { adminRoutes } from "./admin.routes";
 import { workoutRoute } from "./dailyWorkout.routes";
 
-export { muscleRoutes, exerciseRoute, userRoutes, loginRoutes, adminRoutes };
+export {
+  muscleRoutes,
+  exerciseRoute,
+  userRoutes,
+  loginRoutes,
+  adminRoutes,
+  workoutRoute,
+};
