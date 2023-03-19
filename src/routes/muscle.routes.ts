@@ -7,6 +7,7 @@ import {
 } from "../controllers";
 import {
   ensureMuscleExists,
+  onlyAdminAccess,
   protectData,
   uniqueMuscleName,
   validateToken,
@@ -20,6 +21,7 @@ muscleRoutes.post(
   protectData(muscleRequestSchema),
   uniqueMuscleName,
   validateToken,
+  onlyAdminAccess,
   createMuscleController
 );
 muscleRoutes.get("", getAllMusclesController);
@@ -29,11 +31,13 @@ muscleRoutes.patch(
   ensureMuscleExists,
   uniqueMuscleName,
   validateToken,
+  onlyAdminAccess,
   updateMuscleController
 );
 muscleRoutes.delete(
   "/:id",
   ensureMuscleExists,
   validateToken,
+  onlyAdminAccess,
   deleteMuscleGroupController
 );

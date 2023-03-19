@@ -8,7 +8,7 @@ import { onlyAdminInteractAll } from "./onlyAdminInteractAll.middleware";
 import { validateToken } from "./validateToken.middleware";
 import { ensureUserExists } from "./Users/ensureUserExists.middleware";
 import { onlyOneOfEach } from "./DailyExercise/onlyOneOfEach.middleware";
-uniqueMuscleName;
+import { onlyAdminAccess } from "./onlyAdminAccess.middleware";
 
 export {
   protectData,
@@ -21,4 +21,5 @@ export {
   validateToken,
   ensureUserExists,
   onlyOneOfEach,
+  onlyAdminAccess,
 };

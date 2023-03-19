@@ -8,6 +8,7 @@ import {
 } from "../controllers";
 import {
   ensureExerciseExists,
+  onlyAdminAccess,
   protectData,
   uniqueExerciseName,
   validateToken,
@@ -21,6 +22,7 @@ exerciseRoute.post(
   protectData(exerciseRequestSchema),
   uniqueExerciseName,
   validateToken,
+  onlyAdminAccess,
   createExerciseController
 );
 exerciseRoute.get("", listAllExercisesController);
@@ -31,11 +33,13 @@ exerciseRoute.patch(
   ensureExerciseExists,
   uniqueExerciseName,
   validateToken,
+  onlyAdminAccess,
   updateExerciseController
 );
 exerciseRoute.delete(
   "/:id",
   ensureExerciseExists,
   validateToken,
+  onlyAdminAccess,
   deleteExerciseController
 );
