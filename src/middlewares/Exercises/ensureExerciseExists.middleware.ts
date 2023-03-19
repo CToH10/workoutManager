@@ -7,8 +7,11 @@ export const ensureExerciseExists = async (
   response: Response,
   next: NextFunction
 ) => {
-  const id: number = Number(request.params.id);
+  const id: number =
+    Number(request.body.exerciseId) || Number(request.params.id);
   const isNumber = Number.isNaN(id);
+
+  console.log(id);
 
   if (isNumber) {
     throw new AppError("Id must be an integer");

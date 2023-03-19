@@ -2,7 +2,7 @@ import "express-async-errors";
 import express, { Application } from "express";
 import { PrismaClient } from "@prisma/client";
 import {
-  adminRoutes,
+  workoutRoute,
   exerciseRoute,
   loginRoutes,
   muscleRoutes,
@@ -19,6 +19,7 @@ app.use("/muscles", muscleRoutes);
 app.use("/exercises", exerciseRoute);
 app.use("/users", userRoutes);
 app.use("/login", loginRoutes);
+app.use("/workout", workoutRoute);
 app.use("/admin", adminRoutes);
 
 app.use(ErrorHandler);

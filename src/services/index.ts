@@ -12,6 +12,13 @@ import { loginUserService } from "./Login/loginUser.service";
 import { listAllUsersService } from "./Users/listAllUsers.service";
 import { listUserService } from "./Users/listUser.service";
 import { updateUserService } from "./Users/updateUser.service";
+import { createWorkoutService } from "./DailyWorkout/createWorkout.service";
+import { createDailyExerciseService } from "./DailyExercise/createDailyExercise.service";
+import { listWorkoutByIdService } from "./DailyWorkout/listWorkoutById.service";
+import { listWorkoutByUserService } from "./DailyWorkout/listWorkoutByUser.service";
+import { deleteWorkoutService } from "./DailyWorkout/deleteWorkout.service";
+import { deleteExerciseWorkoutService } from "./DailyExercise/deleteExercise.service";
+import { updateDailyExerciseService } from "./DailyExercise/updateExercise.service";
 
 export {
   createMuscleService,
@@ -28,4 +35,11 @@ export {
   listAllUsersService,
   listUserService,
   updateUserService,
+  createWorkoutService,
+  createDailyExerciseService,
+  listWorkoutByIdService,
+  listWorkoutByUserService,
+  deleteWorkoutService,
+  deleteExerciseWorkoutService,
+  updateDailyExerciseService,
 };

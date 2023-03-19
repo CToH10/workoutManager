@@ -7,6 +7,7 @@ import { uniqueEmail } from "./Users/uniqueEmail.middleware";
 import { onlyAdminInteractAll } from "./onlyAdminInteractAll.middleware";
 import { validateToken } from "./validateToken.middleware";
 import { ensureUserExists } from "./Users/ensureUserExists.middleware";
+import { onlyOneOfEach } from "./DailyExercise/onlyOneOfEach.middleware";
 uniqueMuscleName;
 
 export {
@@ -19,4 +20,5 @@ export {
   onlyAdminInteractAll,
   validateToken,
   ensureUserExists,
+  onlyOneOfEach,
 };
