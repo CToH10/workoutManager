@@ -25,6 +25,7 @@ workoutRoute.post(
   protectData(dailyExerciseRequestSchema),
   ensureExerciseExists,
   validateToken,
+  adminOrSelf,
   onlyOneOfEach,
   createDailyExerciseController
 );
