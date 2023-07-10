@@ -8,7 +8,7 @@ export const createDailyExerciseService = async (
 ): Promise<iDailyExerciseReturn> => {
   const sendData = {
     ...data,
-    dailyWorkoutId: id,
+    daily_workoutId: id,
     totalLoad: data.reps * data.series * data.weight,
   };
 

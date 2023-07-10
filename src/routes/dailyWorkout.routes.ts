@@ -19,18 +19,13 @@ import { dailyExerciseRequestSchema } from "../schemas";
 
 export const workoutRoute: Router = Router();
 
-workoutRoute.post(
-  "",
-  validateToken,
-  onlyAdminInteractAll,
-  createWorkoutController
-);
+workoutRoute.post("", validateToken, createWorkoutController);
 workoutRoute.post(
   "/:id",
   protectData(dailyExerciseRequestSchema),
   ensureExerciseExists,
   validateToken,
-  onlyAdminInteractAll,
+  // onlyAdminInteractAll,
   onlyOneOfEach,
   createDailyExerciseController
 );
