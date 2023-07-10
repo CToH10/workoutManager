@@ -7,8 +7,6 @@ export const onlyAdminAccess = (
   response: Response,
   next: NextFunction
 ) => {
-  const paramsId: number = parseInt(request.params.id);
-
   const { admin } = request.info;
 
   if (!admin) {

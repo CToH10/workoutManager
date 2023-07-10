@@ -10,7 +10,7 @@ import {
 } from "../controllers";
 import {
   ensureExerciseExists,
-  onlyAdminInteractAll,
+  adminOrSelf,
   onlyOneOfEach,
   protectData,
   validateToken,
@@ -28,35 +28,28 @@ workoutRoute.post(
   onlyOneOfEach,
   createDailyExerciseController
 );
-workoutRoute.get(
-  "/:id",
-  validateToken,
-  onlyAdminInteractAll,
-  listWorkoutByIdController
-);
+workoutRoute.get("/:id", validateToken, adminOrSelf, listWorkoutByIdController);
 workoutRoute.get(
   "/user/:id",
   validateToken,
-  onlyAdminInteractAll,
+  adminOrSelf,
   listWorkoutByUserController
 );
 workoutRoute.delete(
   "/:id",
   validateToken,
-  onlyAdminInteractAll,
+  adminOrSelf,
   deleteWorkoutController
 );
 workoutRoute.delete(
   "/:id/:exerciseId",
   validateToken,
-  onlyAdminInteractAll,
+  adminOrSelf,
   deleteExerciseWorkoutController
 );
 workoutRoute.patch(
   "/:id/:exerciseId",
   validateToken,
-  // onlyAdminInteractAll,
+  adminOrSelf,
   updateDailyExerciseWorkoutController
 );
-
-// create middleware for only admin to change any and for user to only update self
