@@ -25,7 +25,6 @@ workoutRoute.post(
   protectData(dailyExerciseRequestSchema),
   ensureExerciseExists,
   validateToken,
-  // onlyAdminInteractAll,
   onlyOneOfEach,
   createDailyExerciseController
 );
@@ -56,6 +55,8 @@ workoutRoute.delete(
 workoutRoute.patch(
   "/:id/:exerciseId",
   validateToken,
-  onlyAdminInteractAll,
+  // onlyAdminInteractAll,
   updateDailyExerciseWorkoutController
 );
+
+// create middleware for only admin to change any and for user to only update self
