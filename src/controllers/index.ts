@@ -24,8 +24,10 @@ import {
 } from "./muscle.controller";
 import {
   createUserController,
+  deleteUserController,
   listAllUsersController,
   listUserController,
+  recoverUserController,
   updateUserController,
 } from "./users.controller";
 
@@ -50,4 +52,6 @@ export {
   deleteWorkoutController,
   deleteExerciseWorkoutController,
   updateDailyExerciseWorkoutController,
+  deleteUserController,
+  recoverUserController,
 };

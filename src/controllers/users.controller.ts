@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
 import {
   createUserService,
+  deleteUserService,
   listAllUsersService,
   listUserService,
+  recoverUserService,
   updateUserService,
 } from "../services";
 
@@ -39,5 +41,26 @@ export const updateUserController = async (
   const id: number = Number(request.params.id);
   const admin: boolean = request.info.admin;
   const user = await updateUserService(request.body, id, admin);
+  return response.json(user);
+};
+
+export const deleteUserController = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  const id: number = Number(request.params.id);
+  await deleteUserService(id);
+
+  return response.status(204).send();
+};
+
+export const recoverUserController = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  const id: number = Number(request.params.id);
+
+  const user = await recoverUserService(id);
+
   return response.json(user);
 };
