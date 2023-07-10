@@ -1,12 +1,15 @@
 import { Router } from "express";
 import {
   createUserController,
+  deleteUserController,
   listAllUsersController,
   listUserController,
+  recoverUserController,
   updateUserController,
 } from "../controllers";
 import {
   ensureUserExists,
+  onlyAdminAccess,
   onlyAdminInteractAll,
   protectData,
   uniqueEmail,
@@ -36,4 +39,18 @@ userRoutes.patch(
   validateToken,
   onlyAdminInteractAll,
   updateUserController
+);
+userRoutes.delete(
+  "/:id",
+  ensureUserExists,
+  validateToken,
+  onlyAdminInteractAll,
+  deleteUserController
+);
+userRoutes.put(
+  "/:id",
+  ensureUserExists,
+  validateToken,
+  onlyAdminAccess,
+  recoverUserController
 );
