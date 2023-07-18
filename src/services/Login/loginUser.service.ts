@@ -6,7 +6,10 @@ import { AppError } from "../../errors";
 
 export const loginUserService = async (
   loginData: iLoginInterface
-): Promise<string> => {
+): Promise<{
+  token: string;
+  id: number;
+}> => {
   const { email, password } = loginData;
 
   const user = await prisma.user.findUnique({
@@ -31,5 +34,5 @@ export const loginUserService = async (
     }
   );
 
-  return token;
+  return { token, id: user.id };
 };
