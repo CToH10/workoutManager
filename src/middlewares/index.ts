@@ -9,6 +9,7 @@ import { validateToken } from "./validateToken.middleware";
 import { ensureUserExists } from "./Users/ensureUserExists.middleware";
 import { onlyOneOfEach } from "./DailyExercise/onlyOneOfEach.middleware";
 import { onlyAdminAccess } from "./onlyAdminAccess.middleware";
+import { adminOrSelf } from "./adminOrSelf.middleware";
 
 export {
   protectData,
@@ -22,4 +23,5 @@ export {
   ensureUserExists,
   onlyOneOfEach,
   onlyAdminAccess,
+  adminOrSelf,
 };

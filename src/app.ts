@@ -13,8 +13,11 @@ import { ErrorHandler } from "./errors";
 
 export const prisma = new PrismaClient();
 
+const cors = require("cors");
+
 export const app: Application = express();
 app.use(express.json());
+app.use(cors());
 
 app.use("/muscles", muscleRoutes);
 app.use("/exercises", exerciseRoute);

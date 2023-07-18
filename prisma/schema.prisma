@@ -25,7 +25,7 @@ model user {
   updatedAt DateTime @updatedAt
   deletedAt DateTime?
   enabled Boolean? @default(true)
-  dailyWorkout daily_workout[]
+  daily_workout daily_workout[]
 }
 
 model muscle_group {
@@ -55,8 +55,8 @@ model daily_exercise {
   id Int @id @default(autoincrement())
   exercise exercise @relation(fields: [exerciseId], references: [id])
   exerciseId Int
-  dailyWorkout daily_workout @relation(fields: [dailyWorkoutId], references: [id])
-  dailyWorkoutId Int
+  daily_workout daily_workout @relation(fields: [daily_workoutId], references: [id])
+  daily_workoutId Int
   weight Int
   series Int
   reps Int

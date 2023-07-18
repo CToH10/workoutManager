@@ -10,7 +10,7 @@ import {
 } from "../controllers";
 import {
   ensureExerciseExists,
-  onlyAdminInteractAll,
+  adminOrSelf,
   onlyOneOfEach,
   protectData,
   validateToken,
@@ -19,48 +19,38 @@ import { dailyExerciseRequestSchema } from "../schemas";
 
 export const workoutRoute: Router = Router();
 
-workoutRoute.post(
-  "",
-  validateToken,
-  onlyAdminInteractAll,
-  createWorkoutController
-);
+workoutRoute.post("", validateToken, createWorkoutController);
 workoutRoute.post(
   "/:id",
   protectData(dailyExerciseRequestSchema),
   ensureExerciseExists,
   validateToken,
-  onlyAdminInteractAll,
+  adminOrSelf,
   onlyOneOfEach,
   createDailyExerciseController
 );
-workoutRoute.get(
-  "/:id",
-  validateToken,
-  onlyAdminInteractAll,
-  listWorkoutByIdController
-);
+workoutRoute.get("/:id", validateToken, adminOrSelf, listWorkoutByIdController);
 workoutRoute.get(
   "/user/:id",
   validateToken,
-  onlyAdminInteractAll,
+  adminOrSelf,
   listWorkoutByUserController
 );
 workoutRoute.delete(
   "/:id",
   validateToken,
-  onlyAdminInteractAll,
+  adminOrSelf,
   deleteWorkoutController
 );
 workoutRoute.delete(
   "/:id/:exerciseId",
   validateToken,
-  onlyAdminInteractAll,
+  adminOrSelf,
   deleteExerciseWorkoutController
 );
 workoutRoute.patch(
   "/:id/:exerciseId",
   validateToken,
-  onlyAdminInteractAll,
+  adminOrSelf,
   updateDailyExerciseWorkoutController
 );

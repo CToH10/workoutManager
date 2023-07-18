@@ -5,7 +5,24 @@ export const listWorkoutByUserService = async (id: number) => {
   const workout = await prisma.user.findUnique({
     where: { id: id },
     include: {
-      dailyWorkout: true,
+      daily_workout: {
+        include: {
+          daily_exercise: {
+            select: {
+              totalLoad: true,
+              reps: true,
+              series: true,
+              weight: true,
+              exercise: {
+                select: {
+                  name: true,
+                  id: true,
+                },
+              },
+            },
+          },
+        },
+      },
     },
   });
 
