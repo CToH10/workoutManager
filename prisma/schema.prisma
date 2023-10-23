@@ -55,7 +55,7 @@ model daily_exercise {
   id Int @id @default(autoincrement())
   exercise exercise @relation(fields: [exerciseId], references: [id])
   exerciseId Int
-  daily_workout daily_workout @relation(fields: [daily_workoutId], references: [id])
+  daily_workout daily_workout @relation(fields: [daily_workoutId], references: [id], onDelete: Cascade)
   daily_workoutId Int
   weight Int
   series Int
