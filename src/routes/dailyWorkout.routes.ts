@@ -7,6 +7,7 @@ import {
   listWorkoutByIdController,
   listWorkoutByUserController,
   updateDailyExerciseWorkoutController,
+  updateDailyWorkoutController,
 } from "../controllers";
 import {
   ensureExerciseExists,
@@ -15,7 +16,7 @@ import {
   protectData,
   validateToken,
 } from "../middlewares";
-import { dailyExerciseRequestSchema } from "../schemas";
+import { dailyExerciseRequestSchema, dailyWorkoutUpdateSchema } from "../schemas";
 
 export const workoutRoute: Router = Router();
 
@@ -30,6 +31,13 @@ workoutRoute.post(
   createDailyExerciseController
 );
 workoutRoute.get("/:id", validateToken, adminOrSelf, listWorkoutByIdController);
+workoutRoute.patch(
+  "/:id",
+  protectData(dailyWorkoutUpdateSchema),
+  validateToken,
+  adminOrSelf,
+  updateDailyWorkoutController
+);
 workoutRoute.get(
   "/user/:id",
   validateToken,

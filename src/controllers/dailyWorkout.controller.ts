@@ -5,6 +5,7 @@ import {
   deleteWorkoutService,
   listWorkoutByIdService,
   listWorkoutByUserService,
+  updateDailyWorkoutService,
 } from "../services";
 
 export const createWorkoutController = async (
@@ -41,4 +42,15 @@ export const deleteWorkoutController = async (
   const id: number = Number(request.params.id);
   await deleteWorkoutService(id);
   return response.status(204).json();
+};
+
+export const updateDailyWorkoutController = async (
+  request: Request,
+  response: Response
+): Promise<Response> => {
+  const id: number = Number(request.params.id);
+
+  const workout = await updateDailyWorkoutService(request.body, id);
+
+  return response.json(workout);
 };

@@ -40,3 +40,7 @@ export const workoutByUserSchema = userReturnSchema
     deletedAt: true,
     updatedAt: true,
   });
+
+export const dailyWorkoutUpdateSchema = z.object({
+  date: z.string(),
+});
