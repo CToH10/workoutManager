@@ -6,6 +6,7 @@ export const listWorkoutByUserService = async (id: number) => {
     where: { id: id },
     include: {
       daily_workout: {
+        orderBy: { date: "asc" },
         include: {
           daily_exercise: {
             select: {
