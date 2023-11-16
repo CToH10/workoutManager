@@ -49,6 +49,7 @@ model daily_workout {
   userId Int
   date DateTime @default(now())
   daily_exercise daily_exercise[]
+  unilateral Boolean @default(false)
 }
 
 model daily_exercise {
