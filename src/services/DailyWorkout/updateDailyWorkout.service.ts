@@ -6,7 +6,7 @@ export const updateDailyWorkoutService = async (
   data: { date: string },
   workoutId: number
 ): Promise<iDailyWorkoutReturn> => {
-  const dateTimeString = new Date(data.date+"z03:00");
+  const dateTimeString = new Date(data.date + "z03:00");
 
   await prisma.daily_workout.update({
     where: { id: workoutId },
